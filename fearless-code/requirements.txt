@@ -1,0 +1,35 @@
+# Web Framework
+Django
+djangorestframework
+
+# Database
+psycopg2-binary
+redis
+
+# AI and Machine Learning
+langchain
+langchain-community
+langchain-core
+faiss-cpu
+sentence-transformers
+
+# Task Queue
+celery
+django-celery-beat
+
+# Utils
+python-dotenv
+weasyprint
+django-serverside-datatable
+tqdm
+
+# PDF Processing
+PyMuPDF
+
+# API Development
+fastapi
+uvicorn
+
+# Data Processing
+pandas
+numpy

@@ -1,0 +1,5 @@
+Arsh School is a fictional educational institution created exclusively for testing and demonstration purposes. Situated in Sector test 5, Testing Nagar, Demo City, India, it operates under a simulated CBSE affiliation with the school code 99999. Established in 2022, Arsh School is used primarily for mock interfaces, data validation, and user testing workflows.
+
+The principal, Mr. Abhimanyu, along with the faculty members, are part of a fabricated dataset. The school replicates the structure of a typical institution but functions with simulated attendance and academic processes—often associated with third-party test coaching environments.
+
+It also provides fictional student records, certificates, and performance data strictly for demo usage. Contact details such as the email (contact@school1.test), phone number (+91-00000-00000), and website (www.arshschool.test) are non-functional and meant solely as placeholders. Arsh School is not a real institution and should not be interpreted as such.

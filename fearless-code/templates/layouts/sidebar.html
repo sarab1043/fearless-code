@@ -1,0 +1,177 @@
+{% load static %}
+<!-- ========== Topbar Start ========== -->
+<div class="navbar-custom">
+    <div class="topbar container-fluid">
+       <div class="d-flex align-items-center gap-lg-2 gap-1">
+          <!-- Topbar Brand Logo -->
+          <div class="logo-topbar">
+             <!-- Logo light -->
+            <a href="{% url 'admin-dashboard' %}" class="logo-light">
+                <span class="logo-lg">
+                    <img src="{% static 'assets/images/logo.png' %}" alt="logo" />
+                </span>
+                <span class="logo-sm">
+                    <img src="{% static 'assets/images/logo.png' %}" alt="small logo" />
+                </span>
+            </a>
+            <!-- Logo Dark -->
+            <a href="{% url 'admin-dashboard' %}" class="logo-dark">
+                <span class="logo-lg">
+                    <img src="{% static 'assets/images/logo.png' %}" alt="dark logo" />
+                </span>
+                <span class="logo-sm">
+                    <img src="{% static 'assets/images/logo.png' %}" alt="small logo" />
+                </span>
+            </a>
+          </div>
+          <!-- Sidebar Menu Toggle Button -->
+          <button class="button-toggle-menu">
+          <i class="mdi mdi-menu"></i>
+          </button>
+          <!-- Horizontal Menu Toggle Button -->
+          <button
+             class="navbar-toggle"
+             data-bs-toggle="collapse"
+             data-bs-target="#topnav-menu-content"
+             >
+             <div class="lines">
+                <span></span>
+                <span></span>
+                <span></span>
+             </div>
+          </button>
+       </div>
+       <ul class="topbar-menu d-flex align-items-center gap-3">
+          <li class="d-none d-sm-inline-block">
+             <div
+                class="nav-link"
+                id="light-dark-mode"
+                data-bs-toggle="tooltip"
+                data-bs-placement="left"
+                title="Theme Mode"
+                >
+                <i class="ri-moon-line font-22"></i>
+             </div>
+          </li>
+          <li class="d-none d-md-inline-block">
+             <a class="nav-link" href="" data-toggle="fullscreen">
+             <i class="ri-fullscreen-line font-22"></i>
+             </a>
+          </li>
+          <li class="dropdown">
+               <a class="nav-link dropdown-toggle arrow-none nav-user px-2" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+               <span class="account-user-avatar">
+               {% if user.profile_picture %}
+                     <img src="{{user.profile_picture.url}}" alt="user-image" width="32" class="rounded-circle" />
+               {% else %}
+                     <img src="{% static 'assets/theme/images/users/avatar-1.jpg' %}" alt="user-image" width="32" class="rounded-circle" />
+               {% endif %}
+                </span>
+                <span class="d-lg-flex flex-column gap-1 d-none">
+                  <h5 class="my-0">{{user.name}}</h5>
+                </span>
+             </a>
+             <div
+                class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown"
+                >
+                <!-- item-->
+                <div class="dropdown-header noti-title">
+                   <h6 class="text-overflow m-0">Welcome !</h6>
+                </div>
+                <a href="{% url 'profile' %}" class="dropdown-item">
+                  <i class="mdi mdi-account-circle me-1"></i>
+                  <span>My Profile</span>
+                </a>
+                  {% if request.user.is_superuser %}
+                     <a href="{% url 'admin-logout' %}" class="dropdown-item">
+                  {% endif %}
+                  <i class="mdi mdi-logout me-1"></i>
+                  <span>Logout</span>
+                </a>
+             </div>
+          </li>
+       </ul>
+    </div>
+ </div>
+ <!-- ========== Topbar End ========== -->
+ <!-- ========== Left Sidebar Start ========== -->
+ <div class="leftside-menu">
+    <!-- Brand Logo Light -->
+    <a href="{% url 'admin-dashboard' %}" class="logo logo-light mt-2">
+    <span class="logo-lg">
+    <img src="{% static 'assets/images/logo.png' %}" alt="logo" />
+    </span>
+    <span class="logo-sm">
+    <img src="{% static 'assets/images/logo.png' %}" alt="small logo" />
+    </span>
+    </a>
+    <!-- Brand Logo Dark -->
+    <a href="{% url 'admin-dashboard' %}" class="logo logo-dark">
+    <span class="logo-lg">
+    <img src="{% static 'assets/images/logo.png' %}" alt="dark logo" />
+    </span>
+    <span class="logo-sm">
+    <img src="{% static 'assets/images/logo.png' %}" alt="small logo" />
+    </span>
+    </a>
+    <!-- Sidebar Hover Menu Toggle Button -->
+    <div
+       class="button-sm-hover"
+       data-bs-toggle="tooltip"
+       data-bs-placement="right"
+       title="Show Full Sidebar"
+       >
+       <i class="ri-checkbox-blank-circle-line align-middle"></i>
+    </div>
+    <!-- Full Sidebar Menu Close Button -->
+    <div class="button-close-fullsidebar">
+       <i class="ri-close-fill align-middle"></i>
+    </div>
+    <!-- Sidebar -left -->
+    <div class="h-100" id="leftside-menu-container" data-simplebar>
+       <!-- Leftbar User -->
+       <div class="leftbar-user">
+          <a href="pages-profile.html">
+            {% if user.profile_picture %}
+               <img src="{{user.profile_picture.url}}" alt="user-image" width="42" class="rounded-circle shadow-sm" />
+            {% else %}
+               <img src="{% static 'assets/theme/images/users/avatar-1.jpg' %}" alt="user-image" width="42" class="rounded-circle shadow-sm" />
+            {% endif %}
+         <span class="leftbar-user-name mt-2">{{user.name}}</span>
+          </a>
+       </div>
+       <!--- Sidemenu -->
+       <ul class="side-nav">
+         <li class="side-nav-title">Navigation</li>
+         {% if user.is_superuser %}
+            <li class="side-nav-item {% if request.path == '/user/dashboard' %}menuitem-active{% endif %}">
+              <a href="{% url 'admin-dashboard' %}" class="side-nav-link">
+                  <i class="uil-home-alt"></i>
+                  <span> Dashboard </span>
+               </a> 
+            </li>
+            <li class="side-nav-item {% if request.path == '/admin/users'  or 'admin/users/details' in request.path %}menuitem-active{% endif %}">
+               <a href="{% url 'admin-users' %}" class="side-nav-link">
+                   <i class="mdi mdi-account-multiple"></i>
+                   <span> Users </span>
+                </a> 
+            </li>
+
+            <li class="side-nav-item {% if request.path == '/admin/resources' or 'admin/resources/create' in request.path or 'admin/resources/edit' in request.path %}menuitem-active{% endif %}">
+               <a href="{% url 'admin-resources' %}" class="side-nav-link">
+                   <i class="mdi mdi-account-multiple"></i>
+                   <span> Resources </span>
+                </a> 
+            </li>
+
+            <li class="side-nav-item {% if request.path == '/admin/languages' or 'admin/languages/create' in request.path or 'admin/languages/edit' in request.path %}menuitem-active{% endif %}">
+               <a href="{% url 'admin-languages' %}" class="side-nav-link">
+                   <i class="mdi mdi-account-multiple"></i>
+                   <span> Languages </span>
+                </a> 
+            </li>
+         {% endif %}
+       </ul>
+       <div class="clearfix"></div>
+    </div>
+ </div>

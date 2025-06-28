@@ -1,0 +1,59 @@
+{% extends "master.html" %}
+{% load static %}
+{% block css %}
+<link href="{% static 'assets/theme/css/plugins/datatables/bootstrap5.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'assets/theme/css/plugins/datatables/responsive.bootstrap5.min.css' %}" rel="stylesheet" type="text/css" />
+{% endblock css %}
+{% block content %}
+<div class="container-fluid">
+    <!-- start page title -->
+    <div class="row">
+       <div class="col-12">
+          <div class="page-title-box">
+             <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="{% url 'admin-resources' %}">Languages</a></li>
+                    <li class="breadcrumb-item active">Edit language</li>
+                </ol>
+             </div>
+             <h4 class="page-title">Edit language</h4>
+          </div>
+       </div>
+    </div>
+    <!-- end page title -->
+    <div class="row">
+       <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data" id="edit-languages" novalidate>
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="fieldWrapper mb-2">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {{ field.help_text|safe }}
+                            {{ field.errors }}
+                        </div>
+                    {% endfor %}               
+                    <button type="submit" class="btn btn-primary mt-2 me-2">
+                        <i class="mdi mdi-basket me-1"></i>Update
+                    </button>
+                </form>
+             </div>
+             <!-- end card-body-->
+          </div>
+          <!-- end card-->
+       </div>
+       <!-- end col -->
+    </div>
+    <!-- end row --> 
+ </div>
+{% endblock content %}
+{% block js %}
+<!-- Datatables js -->
+<script src="{% static 'assets/theme/js/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/theme/js/plugins/datatables/bootstrap5.min.js' %}"></script>
+<script src="{% static 'assets/theme/js/plugins/datatables/responsive.min.js' %}"></script>
+<script src="{% static 'assets/theme/js/plugins/datatables/responsive.bootstrap5.min.js' %}"></script>
+<script src="{% static 'assets/admin/js/languages/edit.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,14 @@
+{% load static %}
+<footer class="footer footer-alt">{% now 'Y' %} © </footer>
+<script src="{% static 'assets/theme/js/vendor.min.js' %}"></script>
+{% if  '/admin/announcements' in request.path  %}
+<script src="{% static 'assets/theme/js/select2.min.js' %}"></script>
+{% endif %}
+<script src="{% static 'assets/theme/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+<script src="{% static 'assets/theme/vendor/chart.js/chart.min.js' %}"></script>
+<script src="{% static 'assets/theme/js/pages/demo.dashboard-projects.js' %}"></script>
+<script src="{% static 'assets/theme/js/app.min.js' %}"></script>
+<script src="{% static 'assets/theme/js/plugins/validate/validate.js' %}"></script>
+<script src="{% static 'assets/theme/js/plugins/toastr/toastr.min.js' %}"></script>
+
+

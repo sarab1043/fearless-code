@@ -1,0 +1,133 @@
+{% extends "master.html" %}
+{% load static %}
+{% load tz %}
+{% block content %}
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Profile</li>
+                    </ol>
+                    </div>
+                    <h4 class="page-title">Profile</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+        <div class="row">
+            <div class="col-xl-4 col-lg-5">
+                <div class="card text-center">
+                    <div class="card-body">
+                        {% if user.profile_picture %}
+                            <img src="{{user.profile_picture.url}}" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
+                        {% else %}
+                            <img src="{% static 'assets/theme/images/users/avatar-1.jpg' %}" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
+                        {% endif %}
+                       
+                        <h4 class="mb-0 mt-2">{{user.name|capfirst}}</h4>
+                        <div class="text-start mt-3">
+                            <p class="text-muted mb-2 font-13"><strong>Name :</strong> <span class="ms-2">{{user.name}}</span>
+                            </p>
+                            <p class="text-muted mb-2 font-13"><strong>Email :</strong> <span class="ms-2 ">{{user.email}}</span></p> 
+                        </div>
+                    </div>
+                    <!-- end card-body -->
+                </div>
+            </div>
+            <!-- end col-->
+            <div class="col-xl-8 col-lg-7">
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="nav nav-pills bg-nav-pills nav-justified mb-3" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a href="#update_info" data-bs-toggle="tab" aria-expanded="false" class="nav-link rounded-0 active" aria-selected="false" role="tab" tabindex="-1">
+                                    Update Info
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a href="#update_password" data-bs-toggle="tab" aria-expanded="true" class="nav-link rounded-0" aria-selected="false" role="tab" tabindex="-1">
+                                    Update Password
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                             
+                            <div class="tab-pane active show" id="update_info" role="tabpanel">
+                                <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-account-circle me-1"></i> Update Info</h5>
+                                <form method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="type" value="update_info" /> 
+                                    <div class="row"> 
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="name" class="form-label">Name</label>
+                                                <input type="text" class="form-control" name="name" placeholder="Enter name" value="{{user.name}}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="useremail" class="form-label">Email Address</label>
+                                                <input type="email" class="form-control" placeholder="Enter email" value="{{user.email}}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="justify-content-end row">
+                                        <div class="col-10">
+                                            <button type="submit" class="btn btn-primary" id="updateNameBtn">Update</button>
+                                        </div>
+                                    </div>  
+                                </form>                                    
+                            </div> 
+                            <div class="tab-pane" id="update_password" role="tabpanel">
+                                <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-security me-1"></i> Update Password</h5>
+                                    <form method="POST" id="update-password-form">
+                                        <input type="hidden" name="type" value="update_password" />
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="current_password" class="form-label">Current Password</label>
+                                                    <input type="password" class="form-control" name="current_password" placeholder="Enter Current Password" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="password" class="form-label">New Password</label>
+                                                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter New Password" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="confirm_password" class="form-label">Confirm Password</label>
+                                                    <input type="password" class="form-control" name="confirm_password" placeholder="Enter Confirm Password" required>
+                                                </div>
+                                            </div>
+                                        </div>                                        
+                                        <div class="justify-content-end row">
+                                            <div class="col-10">
+                                                <button type="submit" class="btn btn-primary" id="updatePasswordBtn">Update</button>
+                                            </div>
+                                        </div>                                     
+                                    </form>
+                            </div> 
+                        </div>
+                        <!-- end tab-content -->
+                    </div>
+                    <!-- end card body -->
+                </div>
+                <!-- end card -->
+            </div>
+            <!-- end col -->
+        </div>
+    </div>
+{% endblock content %}
+{% block js %}
+<script src="{% static 'assets/theme/js/profile.js' %}"></script>
+<script src="{% static 'assets/theme/js/plugins/jquery-mask/jquery.mask.min.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+langchain
+faiss-cpu
+sentence-transformers
+requests
+
+pip install -U langchain-community
+
+pip uninstall -y sentence-transformers transformers scikit-learn scipy
+pip install --upgrade pip setuptools wheel
+pip install sentence-transformers scikit-learn scipy transformers
+
+curl -fsSL https://ollama.com/install.sh | sh
+ollama serve
+ollama run phi

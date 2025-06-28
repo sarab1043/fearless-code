@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+      {% load static %}
+      <head>
+            {% include "layouts/head.html" %}
+            {% csrf_token %}
+            {% block css %}
+            {% endblock css %}
+      </head>
+      <body class="authentication-bg position-relative">
+            <!-- Begin page -->
+            <div class="wrapper">
+                  {% include "layouts/sidebar.html" %}
+                  <div class="content-page">
+                        <div class="content">
+                              {% block content %}
+                              {% endblock %}
+                        </div>
+                        {% include "layouts/theme-settings.html" %}
+                  </div>
+            </div>
+            {% include "layouts/footer.html" %}
+            {% block js %}
+            {% endblock js %}
+            {% if messages %}
+                  {% for message in messages %}
+                  {% if message.tags == 'success'%}
+                        <script type="text/javascript">toastr.{{ message.tags }}('{{ message }}')</script>
+                  {% elif message.tags == 'info' %}
+                        <script type="text/javascript">toastr.{{ message.tags }}('{{ message }}')</script>
+                  {% elif message.tags == 'warning' %}
+                        <script type="text/javascript">toastr.{{ message.tags }}('{{ message }}')</script>
+                  {% elif message.tags == 'error' %}
+                        <script type="text/javascript">toastr.{{ message.tags }}('{{ message }}')</script>
+                  {% endif %}
+                  {% endfor %}
+            {% endif %}
+      </body>
+</html>

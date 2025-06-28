@@ -1,0 +1,21 @@
+{% load static %}
+<meta charset="utf-8" />
+<title> Admin Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+<meta content="Coderthemes" name="author" />
+<!-- App favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/images/favicon.png' %}">
+<!-- Plugin css -->
+<link href="{% static 'assets/theme/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}" rel="stylesheet" type="text/css" />
+{% if  '/admin/announcements' in request.path %}
+<link href="{% static 'assets/theme/css/select2.min.css' %}" rel="stylesheet" type="text/css" />
+{% endif %}
+<!-- Theme Config Js -->
+<script src="{% static 'assets/theme/js/hyper-config.js' %}"></script>
+<!-- App css -->
+<link href="{% static 'assets/theme/css/app-saas.min.css' %}" rel="stylesheet" type="text/css" id="app-style" />
+<!-- Icons css -->
+<link href="{% static 'assets/theme/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'assets/theme/css/plugins/toastr/toastr.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'admin/css/style.css' %}" rel="stylesheet" type="text/css" />

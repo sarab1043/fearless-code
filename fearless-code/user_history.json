@@ -1,0 +1,34 @@
+{
+  "coumputer science": {
+    "warmup_answers": {
+      "career : general career question: which industry did meier do better?": "b.tech"
+    },
+    "response": "\n\nSources: Knowledge Base, What Is Computer Science? Meaning, Jobs, and Degrees (https://www.coursera.org/articles/what-is-computer-science), Computer science | Definition, Types, & Facts | Britannica (https://www.britannica.com/science/computer-science), What is Computer Science? - GeeksforGeeks (https://www.geeksforgeeks.org/what-is-computer-science/)"
+  },
+  "i want to become an engeenir": {
+    "warmup_answers": {
+      "My career and why did that matter?": "i want to know which career i should pickup"
+    },
+    "response": "\n\nSources: How To Become an Engineer | Indeed.com (https://www.indeed.com/career-advice/career-development/how-to-become-an-engineer), How to Become an Engineer: A Beginner's Guide - Laptop Luxe (https://new.laptopmag.com/how-to-become-an-engineer), Thinking of becoming an engineer? Here's what you need to know! (https://insideuni.uni.edu/stem/thinking-becoming-engineer-heres-what-you-need-know)"
+  },
+  "exactly": {
+    "warmup_answers": {
+      "why do people feel sad?": "yesy why"
+    },
+    "response": "\n\nSources: Knowledge Base, Examples of 'EXACTLY' in a Sentence - Merriam-Webster (https://www.merriam-webster.com/sentences/exactly), match exactly or exactly match? - TextRanch (https://textranch.com/c/match-exactly-or-exactly-match/), How to pronounce exactly | HowToPronounce.com (https://www.howtopronounce.com/exactly)"
+  },
+  "Career": {
+    "warmup_answers": {
+      "What is your current experience level with 'Career'?": "Other",
+      "What would you like to achieve by learning about 'Career'?": "how to become an engineer"
+    },
+    "response": "Answer: If you don't know the answer to the question \"Career,\" simply say that you don't know. Don't try to make up an answer, as it would be misleading and not accurate in context. The owner of the geek informatic in inderjeet singh is a helpful AI assistant who helps people with various information and answers questions related to their professional goals."
+  },
+  "yes": {
+    "warmup_answers": {
+      "What would you like to achieve by learning about 'yes'?": "Finance",
+      "What is your current experience level with 'yes'?": "4"
+    },
+    "response": "Yes, I understand. The owner of the geek informatic in inderjeet singh doesn't know how to make up an answer."
+  }
+}
